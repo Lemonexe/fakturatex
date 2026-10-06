@@ -20,108 +20,86 @@
 
 \newif\ifbitcoin
 
-% CUSTOMIZE
-% Toggle these two to switch between bank account and bitcoin address:
-% \bitcointrue
-\bitcoinfalse
+\include{MY_DATA_GOES_HERE.tex}
 
 \begin{document}
+	\pagestyle{empty} % remove page numbering
 
-	\section*{Invoice 2026-01-01} % CUSTOMIZE
+	\section*{\InvoiceTitle}
 
 	\vspace{3em}
 	\begin{minipage}[t]{0.45\textwidth}
 		\subduedlabel{Supplier}
 
 		\vspace{0.5em}
-		\large \textbf
-			{John Doe} % CUSTOMIZE
-		\normalsize \\
-			my address \\ % CUSTOMIZE
-			line 2
+		\large \textbf{\MyName} \normalsize \\
+		\MyAddressLineOne \\
+		\MyAddressLineTwo
 
 		\vspace{1.5em}
-		\kv{Reg. no.}
-			{123456789} % CUSTOMIZE
-			Not VAT Registered % CUSTOMIZE
+		\kv{Reg. no.}{\MyRegNo}
+		Not VAT Registered
 
 		\vspace{1.5em}
 		\ifbitcoin
-		~\\
+			~\\
 		\else
-		\kv{Bank Account}
-			{123456789} % CUSTOMIZE
+			\kv{Bank Account}{\MyBankAccount}
 		\fi
-		\kv{Reference}
-			{123} % CUSTOMIZE
-		\kv{Payment method}
-			{Bank transfer}
+		\kv{Reference}{\MyReference}
+		\kv{Payment method}{Bank transfer}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
 		\subduedlabel{Customer}
 
 		\vspace{0.5em}
-		\large \textbf
-			{MegaCorp inc.} % CUSTOMIZE
-		\normalsize \\
-			their address \\ % CUSTOMIZE
-			line 2
+		\large \textbf {\CustomerName} \normalsize \\
+		\CustomerAddressLineOne \\
+		\CustomerAddressLineTwo
 
 		\vspace{1.5em}
-		\kv{Reg. no.}
-			{123456789} % CUSTOMIZE
-		\kv{VAT ID}
-			{CZ123456789} % CUSTOMIZE
+		\kv{Reg. no.}{\CustomerRegNo}
+		\kv{VAT ID}{\CustomerVatId}
 
 		\vspace{1.5em}
-		\kv{Issued on}
-			{Jan 1, 2026} % CUSTOMIZE
-		\kv{Due on}
-			{Jan 22, 2026} % CUSTOMIZE
+		\kv{Issued on}{\InvoiceIssuedDate}
+		\kv{Due on}{\InvoiceDueDate}
 	\end{minipage}
 
 	\ifbitcoin
-	\textit{\textcolor{subdued}
-		{Payment possible in BTC to the address: bc1qsatoshinakamoto} % CUSTOMIZE
-	}
-	\else
+		\textcolor{subdued}{\textit{Payment possible in BTC to the address:} \BitcoinAddress}
+	\else % Nothing, the bank account is above in case of fiat invoice.
 	\fi
 
 	\vspace{3em}
 
 	\renewcommand{\arraystretch}{1.7}
 	\begin{tabularx}{\textwidth}{X r}
-
-	 & \subduedlabel{PRICE} \\
-	\hline
-		My Services % CUSTOMIZE
-	&
-		10,000 CZK % CUSTOMIZE
-	\\
-	\hline
+	 	& \subduedlabel{PRICE} \\
+		\hline
+		\ServiceDescription & \ServicePrice \\
+		\hline
 	\end{tabularx}
 
 	\vspace{2em}
 
 	\begin{flushright}
-	{\Large \textbf
-		{Total price: 10,000 CZK} % CUSTOMIZE
-	}
+		\Large \textbf{Total price: \ServicePrice}
 	\end{flushright}
 
 	\vspace{2em}
 
 	\begin{flushright}
-		\includegraphics[width=4cm]{signature.png} % CUSTOMIZE
+		\includegraphics[width=4cm]{signature.png}
 	\end{flushright}
 
 	\vfill
 
 	\textcolor{subdued}{\small
-		Natural person registered in the trade register of Czech Republic. \\ % CUSTOMIZE
-		Phone: +420123456789 \\
-		Email: john.doe@example.com
+		Natural person registered in the trade register of Czech Republic. \\
+		Phone: \MyPhone \\
+		Email: \MyEmail
 	}
 
 \end{document}
