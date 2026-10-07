@@ -13,6 +13,7 @@
 *.cb
 *.cb2
 .*.lb
+!DEMO.pdf
 
 ## Intermediate documents:
 *.dvi
