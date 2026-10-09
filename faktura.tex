@@ -19,10 +19,12 @@
 \newcommand{\kv}[2]{#1 \hfill #2 \\}
 
 \newif\ifbitcoin
+\newif\ifsignature
 
-\include{MY_DATA_GOES_HERE.tex}
 
 \begin{document}
+	\include{MY_DATA_GOES_HERE.tex}
+
 	\pagestyle{empty} % remove page numbering
 
 	\section*{\InvoiceTitle}
@@ -90,9 +92,12 @@
 
 	\vspace{2em}
 
-	\begin{flushright}
-		\includegraphics[width=4cm]{signature.png}
-	\end{flushright}
+	\ifsignature
+		\begin{flushright}
+			\includegraphics[width=4cm]{signature.png}
+		\end{flushright}
+	\else % Nothing, signature image is disabled.
+	\fi
 
 	\vfill
 

@@ -24,6 +24,8 @@ I recommend:
 
 Edit `MY_DATA_GOES_HERE.tex` to fill out your personal information and toggle between fiat/bitcoin invoice.
 
+Replace your own `signature.png` image, or disable it the data file.
+
 Run:
 
 ```bash
