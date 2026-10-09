@@ -9,9 +9,10 @@ Sounds like you need a word template, not an app — but don't worry, you can av
 
 It's fast. Local-first. Secure. Feature-poor. Badbox-rich. ~~Written in Rust~~. _Scalable, maybe? idk. It's good._
 
-ℹ️ Doesn't support DPH (VAT). Or anything. It's just plain invoice, [see demo here](./DEMO.pdf) 👀
+ℹ️ Doesn't support DPH (VAT). Or anything.<br />
+It's just plain invoice, [see example](./DEMO.pdf) 👀
 
-## Setup
+## Setup locally
 
 fakturatex runs on `pdflatex` → need to install a LaTeX distribution providing it.<br />
 I recommend:
@@ -19,8 +20,7 @@ I recommend:
 - 🐧 Linux: `sudo apt install texlive-base` _(or equivalent if not apt-based)_.
 - 🍎 macOS: probably `brew install --cask mactex` via Homebrew, though I have not tested.
 
-
-## Using
+## Using locally
 
 Edit `MY_DATA_GOES_HERE.tex` to fill out your personal information and toggle between fiat/bitcoin invoice.
 
@@ -33,3 +33,9 @@ pdflatex faktura.tex
 ```
 
 → Creates `faktura.pdf` in a fraction of second ⚡🚀
+
+## Using cloudly ⛈️
+
+Would you like to surrender your business financial data to Github?
+Or just want to play with the thing? <br />
+Run [the CI action](./.github/workflows/compile.yml) 🚀

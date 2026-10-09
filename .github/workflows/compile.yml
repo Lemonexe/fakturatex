@@ -1,0 +1,32 @@
+name: Compile faktura.tex
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # v4.1.0
+        with:
+          root_file: faktura.tex
+          texlive_version: '2026'
+          os: debian
+          compiler: latexmk
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: compiled-pdf
+          path: faktura.pdf
+          if-no-files-found: error
+          retention-days: 14
