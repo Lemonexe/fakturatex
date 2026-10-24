@@ -49,7 +49,11 @@
 			\kv{Bank Account}{\MyBankAccount}
 		\fi
 		\kv{Reference}{\MyReference}
-		\kv{Payment method}{Bank transfer}
+		\ifbitcoin
+			\kv{Payment method}{Bitcoin}
+		\else
+			\kv{Payment method}{Bank transfer}
+		\fi
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
